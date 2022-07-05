@@ -23,7 +23,6 @@ func schemaNodeConfig() *schema.Schema {
 		Type:        schema.TypeList,
 		Optional:    true,
 		Computed:    true,
-		ForceNew:    true,
 		Description: `The configuration of the nodepool`,
 		MaxItems:    1,
 		Elem: &schema.Resource{
@@ -174,7 +173,6 @@ func schemaNodeConfig() *schema.Schema {
 					Type:        schema.TypeMap,
 					Optional:    true,
 					Computed:    true,
-					ForceNew:    true,
 					Elem:        &schema.Schema{Type: schema.TypeString},
 					Description: `The metadata key/value pairs assigned to instances in the cluster.`,
 				},
@@ -230,7 +228,6 @@ func schemaNodeConfig() *schema.Schema {
 				"tags": {
 					Type:        schema.TypeList,
 					Optional:    true,
-					ForceNew:    true,
 					Elem:        &schema.Schema{Type: schema.TypeString},
 					Description: `The list of instance tags applied to all nodes.`,
 				},
@@ -267,7 +264,6 @@ func schemaNodeConfig() *schema.Schema {
 					Optional: true,
 					// Computed=true because GKE Sandbox will automatically add taints to nodes that can/cannot run sandboxed pods.
 					Computed: true,
-					ForceNew: true,
 					// Legacy config mode allows explicitly defining an empty taint.
 					// See https://www.terraform.io/docs/configuration/attr-as-blocks.html
 					ConfigMode:       schema.SchemaConfigModeAttr,
